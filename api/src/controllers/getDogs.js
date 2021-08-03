@@ -10,7 +10,7 @@ const { Dog, Temperament } = require('../db');
 const {API_KEY} = process.env;
 
 async function getDogs(req, res) {
-    const {name} = req.query
+    const { name } = req.query
 
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds?key=${API_KEY}`)
     const allData = response.data;
@@ -20,7 +20,6 @@ async function getDogs(req, res) {
 
     if(name) {
         try {
-            // console.log(responseBreed.data)
             let dogsData = await Dog.findAll({
                 where: {
                   name: {

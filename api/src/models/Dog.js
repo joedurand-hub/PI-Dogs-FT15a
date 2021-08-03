@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     height: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,10 +27,6 @@ module.exports = (sequelize) => {
     },
     yearsLife: {
       type: DataTypes.STRING,
-    },
-    img: { 
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,
