@@ -29,17 +29,15 @@ async function getDogsById(req, res) {
                 name: response.data.name,
                 image: response.data.reference_image_id,
                 temperament: response.data.temperament,
-                weightImperial: response.data.weight.imperial,
-                weightMetric: response.data.weight.metric,
-                heightImperial: response.data.weight.imperial,
-                heightMetric: response.data.weight.metric,
+                weight: response.data.weight.metric,
+                height: response.data.weight.metric,
                 yearsLife: response.data.life_span,
             }
             return res.json(dogData)
         }
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'La solicitud de /videogame por Id falló'})
+        res.status(500).json({error: 'La solicitud de /dogs por Id falló. The request for / dogs by Id failed.'})
     }
 };
 

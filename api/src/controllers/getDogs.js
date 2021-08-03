@@ -42,7 +42,7 @@ async function getDogs(req, res) {
 
         } catch(error) {
             console.log(error)
-            res.status(500).json({error: 'La solicitud de /dogs por coincidencia de nombre falló'})
+            res.status(500).json({error: 'La solicitud de /dogs por coincidencia de nombre falló. The / dogs request for name match failed.'})
         }
     } else {
 
@@ -63,7 +63,7 @@ async function getDogs(req, res) {
 
        } catch(error) {
             console.log(error)
-            res.status(500).json({error: 'La solicitud de /dogs por coincidencia de nombre falló'})
+            res.status(500).json({error: 'La solicitud de /dogs para traer todas las razas falló. The / dogs request to bring all breeds failed.'})
        }
     }
 
