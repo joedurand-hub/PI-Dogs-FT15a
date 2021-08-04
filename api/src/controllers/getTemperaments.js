@@ -18,7 +18,19 @@ async function getTemperaments(req, res) {
          allData.map(element => {
             temperamentsByApi.push(element.temperament)
            })
-        const tempsInDb = temperamentsByApi.map(element => element && element.split(",")).flat().slice(0, 300)
+        const repetidos = temperamentsByApi.map(element => element && element.split(",")).flat()
+
+        const temps = [];
+
+        const tempsArray = [...repetidos].sort()
+
+        for (let i = 0; i < tempsArray.length; i++) {
+            if (tempsArray[i + 1] !== tempsArray[i]) {
+                temps.push(tempsArray[i]);
+            }
+          }
+        const tempsTrim = temps.map(string => string.trim())
+        const tempsInDb = tempsTrim.slice(0, 132)
         tempsInDb.forEach(element => {
             Temperament.findOrCreate(
                     {where: {name: element}

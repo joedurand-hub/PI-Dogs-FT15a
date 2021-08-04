@@ -7,7 +7,7 @@ const { Dog, Temperament, dog_temperaments } = require('../db');
 async function postDog(req, res) {
     try {
         const {name, image, weight, height, yearsLife, temperament} = req.body;
-       
+       console.log(req.body)
            let dogCreate = await Dog.create({
 				id: uuidv4(),
 				name: name,
@@ -21,7 +21,7 @@ async function postDog(req, res) {
           
         } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'La solicitud para crear un nuevo Videojuego falló'})
+        res.status(500).json({error: 'La solicitud para crear información de un perro falló'})
     }
 };
 

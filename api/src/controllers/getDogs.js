@@ -33,8 +33,8 @@ async function getDogs(req, res) {
                     name: dogs.name,
                     image: dogs.reference_image_id,
                     temperament: dogs.temperament,  
-                    weight: dogs.weight.imperial,
-                    weight: dogs.weight.metric, 
+                    weight: dogs.weight.metric.split("-"),
+                    height: dogs.height.metric.split("-"), 
                 }
                 dogsData.push(dogs)
             }
@@ -52,13 +52,14 @@ async function getDogs(req, res) {
         for (let data of allData) {
             dogsAllData.push({
                 id: data.id,
-                name: data.name, // listo
-                image: data.image.url, // listo
-                temperament: data.temperament, // listo  
-                weightImperial: data.weight.imperial,  // para el filtrado
-                weightMetric: data.weight.metric,    // para el filtrado
+                name: data.name,
+                image: data.image.url,
+                temperament: data.temperament, 
+                weight: data.weight.metric.split("-"),
+                height: data.height.metric.split("-"),
             })
         }
+        console.log(dogsAllData[4])
         return res.json(dogsAllData)
 
        } catch(error) {
