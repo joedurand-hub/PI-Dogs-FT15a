@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { SearchForGamesByName } from '../../1-actions/index';
+import { SearchDogsByName } from '../../Actions/index';
 import './InputSearch.css';
 
 export function Search() {
@@ -16,7 +16,7 @@ export function Search() {
     
     const handleClick = (e) => { // Resolver click (buscar)
         e.preventDefault();
-        dispatch(SearchForGamesByName(name))
+        dispatch(SearchDogsByName(name))
     };
     return (
 

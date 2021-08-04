@@ -3,44 +3,38 @@ import { useSelector } from 'react-redux'
 import Nav from '../Nav/Nav'
 import './DetailCard.css'
 
-export function VideogameDetailById() {
-    const videogame = useSelector((dataStore) => dataStore.gameDetailById)
+export function DogDetailById() {
+    const dog = useSelector((dataStore) => dataStore.dogById)
 
-    console.log("dataVideogame", videogame)
+    console.log("dataDog:", dog)
 
         return (
         <div>
             <Nav/>    
-            <div className="GameCard" >
-            <h2> {videogame.name} </h2>
-                <img src= {videogame.img} alt="" />
-                <h3>Release Date: {videogame.releaseDate} </h3>
-                <h3>Rating: {videogame.rating} </h3>
-                
-                <strong>Platforms:</strong>
-                    <div>
-                        <h4> {videogame.platforms} </h4>
-                    </div>
+            <div className="DogCard" >
+                <h2> {dog.name} </h2>
 
-                <strong>Description:</strong>
-                <div className="description">
-                    <p> {videogame.description}</p>
-                </div>
+                <img src= {dog.image} alt="" />
+            
+                <h3>Weight: {dog.weight} </h3>
+
+                <h3>Height: {dog.height} </h3>
+                
+                <strong>Years of life:</strong>
+                    <div>
+                        <h4> {dog.yearsLife} </h4>
+                    </div>
                
-                <strong>Genres:</strong>
-                <div className="DetailGenres">
-                {   
-                    videogame.genre?.map((element, i) => (
+                <strong>Temperaments:</strong>
+                <div className="detailTemperaments">
+                { dog.temperament?.map((element, i) => (
                         <h4 key={i}> {element} </h4> 
-                    ))
-                }
-                {console.log("genre:", videogame.genre)}
-                {
-                    videogame.genres?.map((e, i) => (
+                    )) }
+                {console.log("temperament:", dog.temperament)}
+                { dog.genres?.map((e, i) => (
                         <h4 key={i}> {e.name} </h4>
-                    ))
-                }
-                {console.log("genres:", videogame.genres)}
+                    )) }
+                {console.log("temperaments:", dog.genres)}
                 </div>
             </div>
         </div>

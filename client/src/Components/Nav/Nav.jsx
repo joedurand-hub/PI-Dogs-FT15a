@@ -3,11 +3,6 @@ import {NavLink} from 'react-router-dom';
 import InputSearch from '../InputSearch/InputSearch';
 import './nav.css';
 
-// Renderiza Home
-// Renderiza InputSearch
-// Renderiza Create
-// Renderiza Filter
-
 export function Nav() {
   return (
 <div>
@@ -15,13 +10,10 @@ export function Nav() {
     <NavLink to={'/home'}>
       <button className="home"> Home </button>
     </NavLink>
-    
-    <InputSearch/>
-
+     <InputSearch/>
     <NavLink to={'/create'}>
       <button className="buttonCreate"> Create </button>
     </NavLink>
-    
     </nav>
 </div>
   );

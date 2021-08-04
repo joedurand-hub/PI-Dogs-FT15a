@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Switch } from "react-router-dom";
-import Home from './3-components/2-Home/Home/Home'
-import LandingPage from './3-components/1-Landing/Landing.jsx';
-import Create from './Components/Home/3- Form/Form'
-import DetailCard from './Components/Detail/DetailCard'
+import Home from './Components/Home/1-Home/Home.jsx';
+import LandingPage from './Components/Landing/Landing.jsx';
+import Create from './Components/Home/3-Form/Form.jsx';
+import DetailCard from './Components/Detail/DetailCard.jsx';
 
 
 function App() {

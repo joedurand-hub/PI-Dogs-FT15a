@@ -1,4 +1,4 @@
-.GameCard {
+.DogCard {
     display: flex;
     background: white;
     flex-direction: column;
@@ -10,24 +10,24 @@
     height: 80%;
     box-shadow: 5px 4px 17px 3px rgba(0, 0, 0, 0.322);
 }
-.GameCard img {
+.DogCard img {
     width: 100%;
     height: 70%;
 }
-.GameCard h3 {
+.DogCard h3 {
     border-top: 5px;
     text-align: center;
     vertical-align: middle;
     font-weight: bold;
 }
-.GameCard p {
+.DogCard p {
     margin: 0;
     padding: 0;
     text-align: left;
     margin-left: 20px;
     font-weight: 600;
 }
-.GameCard .genres {
+.DogCard .temperament {
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -35,7 +35,7 @@
     color: rgb(156, 156, 156);
 }
 
-.GameCard h4 {
+.DogCard h4 {
     margin: 10px;
     word-spacing: 3px;
     color: rgb(156, 156, 156);
@@ -43,7 +43,7 @@
     margin-bottom: 5px;
 }
 
-.GameCard div {
+.DogCard div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -51,17 +51,17 @@
     margin: 20px;
 }
 
-.GameCard .description {
+.DogCard .description {
     text-align: left;
 }
 
-.GameCard .DetailGenres {
+.DogCard .DetailGenres {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.GameCard button {
+.DogCard button {
     cursor: pointer;
     width: 120px;
     margin: 4%;
@@ -74,7 +74,7 @@
     border: 1px solid;
 }
 
-.GameCard button:hover {
+.DogCard button:hover {
     cursor: pointer;
     color: rgb(255, 255, 255);
     font-weight: 600;

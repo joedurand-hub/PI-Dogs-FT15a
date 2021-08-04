@@ -1,17 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import Card from '../../5-Card/GameCard'
+import Card from '../../Card/DogCard'
 import './Paginate.css'
 // Tiene el paginado de las Cards
 
-export function Paginate({ videogame, title, dataLimit, pageLimit }) {
-    const [pages] = useState(Math.round(videogame.length / dataLimit));
+export function Paginate({ dog, title, dataLimit, pageLimit }) {
+    const [pages] = useState(Math.round(dog.length / dataLimit));
     const [currentPage, setCurrentPage] = useState(1);
 
     const getPaginatedData = () => {
         const startIndex = currentPage * dataLimit - dataLimit
         const endIndex = startIndex + dataLimit
-        return videogame.slice(startIndex, endIndex)
+        return dog.slice(startIndex, endIndex)
     };        
 
     const getPaginationGroup = () => {
@@ -36,20 +36,20 @@ export function Paginate({ videogame, title, dataLimit, pageLimit }) {
         <div>
        <div className="containerPagination">
         <h1>{title}</h1>
-        <div className={`button ${videogame.length === 0 ? 'noExistence' : ''}`}>
+        <div className={`button ${dog.length === 0 ? 'noExistence' : ''}`}>
             <button className={`${currentPage === 1 ? 'disabled' : ''}`}  onClick={goToPreviousPage}> Previous </button>    
             <button className={`${currentPage === 7 ? 'disabled' : ''}`} onClick={goToNextPage}> Next </button>
         </div> 
         <div className="pagination">
-          {getPaginatedData().map((game, id) => ( 
+          {getPaginatedData().map((can, id) => ( 
               <Card 
               key={id} 
-              videogame={game} 
+              dog={can} 
               dataLimit={15}
               />
           ))}
         </div>
-        <div className={`${videogame.length === 0 ? 'noExistence' : 'buttonsPages'}`}>
+        <div className={`${dog.length === 0 ? 'noExistence' : 'buttonsPages'}`}>
         {getPaginationGroup().map((item, index) => (
             <button key={index} onClick={changePage} className={`paginationItem ${currentPage === item ? 'active' : null}`}
             > <span>{item}</span> </button>
@@ -60,6 +60,6 @@ export function Paginate({ videogame, title, dataLimit, pageLimit }) {
   )
       
   
-  }
+}
 
   export default Paginate;

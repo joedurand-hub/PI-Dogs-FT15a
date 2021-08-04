@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Paginate from '../2- Paginate/paginate'
-import Card from '../../5-Card/GameCard'
-import Nav from '../../4-Nav/Nav.jsx';
-import FilterAndOrder from '../4- FilterAndOrder/FilterAndOrder';
+import Paginate from '../2-Paginate/paginate'
+import DogCard from '../../Card/DogCard.jsx'
+import Nav from '../../Nav/Nav.jsx';
+import FilterAndOrder from '../4-FilterAndOrder/FilterAndOrder.jsx';
 import './Home.css'
 
 function Home() {
   const dispatch = useDispatch();
-  const videogames = useSelector((dataStore) => dataStore.searchVideogames);
-  console.log(videogames)
+  const dogs = useSelector((dataStore) => dataStore.searchDog);
+  console.log(dogs)
       return (
       <div>
         <Nav/>
         <FilterAndOrder/>
           <div className="container">
             <Paginate
-              videogame={videogames}
-              RenderComponent={Card}
+              dog={dogs}
+              RenderComponent={DogCard}
               title="Videogames"
               pageLimit={7}
               dataLimit={15}
