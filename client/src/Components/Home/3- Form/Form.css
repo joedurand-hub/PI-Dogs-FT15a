@@ -1,0 +1,170 @@
+.formCreate {
+    display: flex;
+    flex-direction: column;
+}
+
+.formCreate .form { 
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 95%;
+    background: #fff;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    margin: 1%;
+    height: 700px;
+}
+
+
+/* INPUTS CSS */
+.formCreate .form .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items:initial;
+    width: 32%;
+}
+
+.formCreate .form .inputs strong {
+    box-shadow: 0px 0px 20px 0px rgb(50, 196, 13);
+    font-size: 22px;
+}
+
+.formCreate .form .inputs .inputCreate {
+    display: flex;
+    flex-direction: column;
+    align-items:initial;
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-bottom: 2px solid #d1d1d1;
+    font-size: 16px;
+}
+
+.formCreate .form .inputs textarea {
+    width: 100%;
+    padding: 8px 0px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #d1d1d1;
+    font-family: "Open sans";
+    color: #5a5a5a;
+    font-size: 14px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.formCreate .form .inputs button[type="submit"] {
+    margin-top: 15px;
+    width: 180px;
+    background: #3371b6;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    align-self: center;
+    color: #fff;
+    font-family: "Open sans";
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formCreate .form .inputs button[type="submit"]:hover {
+    background: #4091ec;
+}
+
+.formCreate .form .inputs label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* GENRES CSS */
+
+.formCreate .form .genres {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+
+}
+
+.formCreate .form .genres strong {
+    box-shadow: 0px 0px 20px 0px rgb(159, 13, 196);
+    font-size: 22px;
+    width: 300px;
+    margin-left: 15px;
+}
+
+.formCreate .form .genres label {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: 22px;
+
+}
+
+.formCreate .form .genres .containerGenres {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.formCreate .form .genres .containerGenres .inputGenre {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.formCreate .form .genres .containerGenres label {
+    font-size: 18px;
+}
+
+.formCreate .form .genres .containerGenres .inputCreate[type=checkbox] {
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
+}
+
+/* PLATFORMS CSS */
+.formCreate .form .platforms {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    margin-left: 50px;
+}
+
+.formCreate .form .platforms strong {
+    box-shadow: 0px 0px 20px 0px rgb(138, 13, 196);
+    font-size: 22px;
+    width: 320px;
+    margin-left: 80px;
+}
+
+.formCreate .form .platforms label {
+    display: flex;
+    flex-direction:column-reverse;
+    font-size: 22px;
+}
+
+.formCreate .form .platforms .containerPlatforms {
+    margin: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.formCreate .form .platforms .containerPlatforms label {
+    font-size: 18px;
+}
+
+.formCreate .form .platforms .containerPlatforms .inputCreate[type=checkbox] {
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
+}

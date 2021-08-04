@@ -1,0 +1,99 @@
+.Nav {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    z-index: 999;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
+}
+
+
+.Nav .home {
+  border: none;
+  text-decoration: none !important;
+  width: 120px;
+  height: 40px;
+  margin: 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #00bee9;
+  background: -webkit-linear-gradient(
+    to right,
+    #019ccf,
+    #00bee9
+  ); 
+  background: linear-gradient(
+    to right,
+    #0097c9,
+    #00c0eb
+  ); 
+  color: #ffffff;
+}
+
+.Nav .home:hover {
+  border: none;
+  text-decoration: none !important;
+  box-shadow: 1px 3px 12px 5px rgba(212, 212, 212, 0.747);
+}
+
+.Nav .home:active {
+  font-size: 15px;
+  background: #00abd1; 
+  background: -webkit-linear-gradient(
+    to right,
+    #00749b,
+    #00a1c5
+  );
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00a7cc
+  ); 
+  box-shadow: 1px 3px 12px 5px rgba(212, 212, 212, 0.747);
+}
+
+.Nav  .buttonCreate {
+  border: none;
+  text-decoration: none !important;
+  width: 120px;
+  height: 40px;
+  margin: 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #00bee9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #019ccf,
+    #00bee9
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0097c9,
+    #00c0eb
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #ffffff;
+  }
+
+.Nav  .buttonCreate:hover {
+  border: none;
+  text-decoration: none !important;
+  box-shadow: 1px 3px 12px 5px rgba(212, 212, 212, 0.747);
+}
+
+.Nav  .buttonCreate:active {
+  font-size: 15px;
+  background: #00abd1; 
+  background: -webkit-linear-gradient(
+    to right,
+    #00749b,
+    #00a1c5
+  );
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00a7cc
+  ); 
+  box-shadow: 1px 3px 12px 5px rgba(212, 212, 212, 0.747);
+}

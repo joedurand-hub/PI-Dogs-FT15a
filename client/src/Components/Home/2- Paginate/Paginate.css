@@ -1,0 +1,106 @@
+.containerPagination {
+  margin: 0;
+  padding: 0;
+}
+
+.container .containerPagination {
+  margin: 0;
+  padding: 0;
+}
+
+.container .containerPagination .button button {
+    text-decoration: none;
+    width: 140px;
+    height: 50px;
+    background: #00b4db; 
+    background: -webkit-linear-gradient(
+      to right,
+      #0083b0,
+      #00b4db
+    ); 
+    background: linear-gradient(
+      to right,
+      #0083b0,
+      #00b4db
+    ); 
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 0 8px;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold 300;
+    margin: 10px;
+}
+
+.container .containerPagination .button button:hover {
+  background: #00bbe6; 
+  background: -webkit-linear-gradient(
+    to right,
+    #009bcf,
+    #00c1ec
+  ); 
+  background: linear-gradient(
+    to right,
+    #009bcf,
+    #00c1ec
+  ); 
+    border: 1px solid rgb(167, 167, 167);
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 4px 19px 7px rgba(212, 212, 212, 0.747);
+    cursor: pointer;
+}
+
+.container .containerPagination .button button:active {
+    font-size: 19px;
+    box-shadow: 1px 4px 19px 7px rgba(212, 212, 212, 0.747);
+    cursor: pointer;
+    transform: translate(1px)
+}
+
+.disabled {
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.noExistence {
+  display: none;
+}
+
+.buttonsPages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.buttonsPages .paginationItem {
+  background: #fff;
+  border: 2px solid #666;
+  padding: 10px 15px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  position: relative;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.buttonsPages .paginationItem:hover {
+  border: 2px solid rgb(88, 88, 88);
+  background-color: rgb(218, 218, 218);
+}
+
+.buttonsPages .paginationItem span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.buttonsPages .paginationItem span:active {
+  font-weight: 600;
+  font-size: 16px;
+  transition: 500ms;
+}
+
