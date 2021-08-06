@@ -10,7 +10,7 @@ import {
     ASC,
     DESC,
     RESET,
-} from '../1-actions/index'
+} from '../Actions/index'
 
 const initialState = { 
     searchDog: [],       // Sin usar

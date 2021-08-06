@@ -28,10 +28,10 @@ async function getDogsById(req, res) {
                 id: response.data.id,
                 name: response.data.name,
                 image: response.data.reference_image_id,
-                temperament: response.data.temperament,
                 weight: response.data.weight.metric,
                 height: response.data.weight.metric,
                 yearsLife: response.data.life_span,
+                temperament: response.data.temperament,
             }
             return res.json(dogData)
         }

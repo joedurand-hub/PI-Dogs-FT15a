@@ -4,41 +4,42 @@ import Nav from '../Nav/Nav'
 import './DetailCard.css'
 
 export function DogDetailById() {
-    const dog = useSelector((dataStore) => dataStore.dogById)
-
+    const dog = useSelector((dataStore) => dataStore.detailDogById)
+    const temperaments = useSelector((dataStore) => dataStore.getTemperaments)
     console.log("dataDog:", dog)
-
+    console.log("temperamentos:", temperaments)
         return (
         <div>
             <Nav/>    
             <div className="DogCard" >
                 <h2> {dog.name} </h2>
 
-                <img src= {dog.image} alt="" />
+                <img src= {dog.image} alt="Image not found" />
             
                 <h3>Weight: {dog.weight} </h3>
 
                 <h3>Height: {dog.height} </h3>
                 
                 <strong>Years of life:</strong>
-                    <div>
-                        <h4> {dog.yearsLife} </h4>
-                    </div>
+                <div>
+                    <h4> {dog.yearsLife} </h4>
+                </div>
                
                 <strong>Temperaments:</strong>
                 <div className="detailTemperaments">
-                { dog.temperament?.map((element, i) => (
-                        <h4 key={i}> {element} </h4> 
-                    )) }
-                {console.log("temperament:", dog.temperament)}
-                { dog.genres?.map((e, i) => (
-                        <h4 key={i}> {e.name} </h4>
-                    )) }
-                {console.log("temperaments:", dog.genres)}
+                    <h4> { dog.temperament } </h4>
+                    { temperaments?.map((temperament, i) => (
+                            <h4 key={i}> {temperament.name} </h4>
+                     ))
+                    }
+                </div>
+                <div>
+                    
+                    
                 </div>
             </div>
         </div>
     )
 }
 
-export default VideogameDetailById;
+export default DogDetailById;

@@ -15,15 +15,10 @@ async function getTemperaments(req, res) {
     const allData = response.data;
 
         const temperamentsByApi = [];
-         allData.map(element => {
-            temperamentsByApi.push(element.temperament)
-           })
-        const repetidos = temperamentsByApi.map(element => element && element.split(",")).flat()
-
+         allData.map(element => temperamentsByApi.push(element.temperament))
+        const repeats = temperamentsByApi.map(element => element && element.split(",")).flat()
         const temps = [];
-
-        const tempsArray = [...repetidos].sort()
-
+        const tempsArray = [...repeats].sort()
         for (let i = 0; i < tempsArray.length; i++) {
             if (tempsArray[i + 1] !== tempsArray[i]) {
                 temps.push(tempsArray[i]);

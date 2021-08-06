@@ -26,7 +26,8 @@ export const SearchDogsByName = (name) => async (dispatch) => {
 export function DogById(id) {
     return async function(dispatch) {
          try {
-           const response = await axios.get(`http://localhost:3001/videogame/${id}`)
+           const response = await axios.get(`http://localhost:3001/dogs/${id}`)
+           console.log("Action ID:",response.data)
             return dispatch({type: DOG_DETAIL_BY_ID_CARD, payload: response.data})
          } catch(error) {
             console.log(error)
@@ -34,13 +35,13 @@ export function DogById(id) {
     }
 }
 
-export function postDog(game) {
+export function postDog(dog) {
     try {
         return async function (dispatch) {
-            const response = await axios.post('http://localhost:3001/videogame', game
+            const response = await axios.post('http://localhost:3001/dog', dog
             );
             console.log(response)
-            return dispatch({type: ADD_NEW_VIDEOGAME, payload: response.data});
+            return dispatch({type: ADD_NEW_DOG, payload: response.data});
     }
     } catch (error) {
         console.log(error)
@@ -51,7 +52,7 @@ export function getTemperaments() {
     return async function(dispatch) {
         try {
             const response = await axios.get('http://localhost:3001/genres')
-            return dispatch({type: GET_GENRES, payload: response.data}) 
+            return dispatch({type: FILTER_BY_TEMPERAMENTS, payload: response.data}) 
 
         } catch(error) {
             console.log(error)
@@ -60,7 +61,7 @@ export function getTemperaments() {
 }
 
 export function filterByTemperaments(payload) {           
-    return { type: FILTER_BY_GENRE, payload }
+    return { type: FILTER_BY_TEMPERAMENTS, payload }
 }
 
 export function filterCreated(payload) {  

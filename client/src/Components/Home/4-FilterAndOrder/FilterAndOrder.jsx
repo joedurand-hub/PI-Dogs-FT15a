@@ -1,18 +1,18 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, filterByGenre, filterCreated, orderBy } from "../../../1-actions/index";
+import { getTemperaments, filterByTemperaments, filterCreated, orderBy } from "../../../Actions/index";
 import './FilterAndOrder.css'
 export default function Filter() {
     const dispatch = useDispatch();
-    const getStateGenres = useSelector((state) => state.getGenres)    
+    const getTemperamentState = useSelector((state) => state.getTemperaments)    
 
     useEffect(() => {
-      dispatch(getGenres())
+      dispatch(getTemperaments())
     }, [dispatch]);
   
-    const handleGenreChange = (e) => {   
-        dispatch(filterByGenre(e.target.value));
+    const handleTemperamentsChange = (e) => {   
+        dispatch(filterByTemperaments(e.target.value));
     }  
 
     const onOrderChange = (e) => {
@@ -42,9 +42,9 @@ export default function Filter() {
                 <option value="DESC">Rating - (Best - Worse)</option>
             </select>
 
-            <select id="select" onChange={(e) => handleGenreChange(e)}>
+            <select id="select" onChange={(e) => handleTemperamentsChange(e)}>
                 <option value="All"> Genres </option>
-                { getStateGenres.map((game) => (<option value={game.name}> {game.name} </option>) )}  
+                { getTemperamentState.map((dog) => (<option value={dog.name}> {dog.name} </option>) )}  
             </select>
 
         </div>

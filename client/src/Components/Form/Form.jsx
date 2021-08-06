@@ -1,8 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres, postGame } from '../../../1-actions';
-import Nav from '../../4-Nav/Nav'
+import { getTemperaments, postDog } from '../../Actions';
+import Nav from '../Nav/Nav'
 import './Form.css'
 
 export function Form() {
@@ -22,7 +22,7 @@ export function Form() {
   })
 
   useEffect(() => {
-    dispatch(getGenres())
+    dispatch(getTemperaments())
   }, [dispatch]);
 
   const platformSelects = ["PlayStation", "PlayStation-2", "PlayStation-3", "PlayStation-4", "PlayStation-5", "PC", "iOS", "Android", "macOS", "Xbox", "Nintendo", "Atari", "Genesis"]
@@ -50,7 +50,7 @@ export function Form() {
       };
 
 
-      dispatch(postGame(videogameObject));
+      dispatch(postDog(videogameObject));
       e.target.reset(); 
       alert("Videogame created!");
       

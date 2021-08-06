@@ -11,9 +11,9 @@ export function Nav() {
       <button className="home"> Home </button>
     </NavLink>
      <InputSearch/>
-    <NavLink to={'/create'}>
+    {/* <NavLink to={'/create'}>
       <button className="buttonCreate"> Create </button>
-    </NavLink>
+    </NavLink> */}
     </nav>
 </div>
   );

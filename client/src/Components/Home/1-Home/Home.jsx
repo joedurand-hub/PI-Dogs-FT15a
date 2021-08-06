@@ -18,7 +18,7 @@ function Home() {
             <Paginate
               dog={dogs}
               RenderComponent={DogCard}
-              title="Videogames"
+              title="Dogs of the world"
               pageLimit={7}
               dataLimit={15}
             />
