@@ -20,6 +20,11 @@ async function getDogs(req, res) {
 
     if(name) {
         try {
+            // const temperamentsByApi = [];
+            // allData.map(element => temperamentsByApi.push(element.temperament))
+            // const repeats = temperamentsByApi.map(element => element && element.split(",")).flat()
+            // const temps = [];
+
             let dogsData = await Dog.findAll({
                 where: {
                   name: {
@@ -27,16 +32,19 @@ async function getDogs(req, res) {
                   }
                 },
               });
-                for (let dogs of dataAPI) {
-                    dogs = {
-                    id: dogs.id,
-                    name: dogs.name,
-                    image: dogs.reference_image_id,
-                    temperament: dogs.temperament,  
-                    weight: dogs.weight.metric.split("-"),
-                    height: dogs.height.metric.split("-"), 
-                }
-                dogsData.push(dogs)
+              for (let data of allData) {
+                let arr = []
+                arr.push(data.temperament)
+                let arrTemp = arr.map(el => el && el.split(",")).flat()
+    
+                dogsAllData.push({
+                    id: data.id,
+                    name: data.name,
+                    image: data.image.url,
+                    temperament: arrTemp.map(temperament => temperament), 
+                    weight: data.weight.metric.split("-").map(string => string.trim()).toString()
+                    
+                })
             }
             return res.json(dogsData)
 
@@ -50,16 +58,20 @@ async function getDogs(req, res) {
         let dogsAllData = await Dog.findAll({include: Temperament})
 
         for (let data of allData) {
+            let arr = []
+            arr.push(data.temperament)
+            let arrTemp = arr.map(el => el && el.split(",")).flat()
+
             dogsAllData.push({
                 id: data.id,
                 name: data.name,
                 image: data.image.url,
-                temperament: data.temperament, 
-                weight: data.weight.metric.split("-"),
-                height: data.height.metric.split("-"),
+                temperament: arrTemp, 
+                weight: data.weight.metric.split("-").map(string => string.trim()).toString()
+                
             })
         }
-        console.log(dogsAllData[4])
+        console.log("Consologueo un dog por las dudas y para ver rápido como es su data", dogsAllData[4])
         return res.json(dogsAllData)
 
        } catch(error) {

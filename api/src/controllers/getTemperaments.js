@@ -15,7 +15,7 @@ async function getTemperaments(req, res) {
     const allData = response.data;
 
         const temperamentsByApi = [];
-         allData.map(element => temperamentsByApi.push(element.temperament))
+        allData.map(element => temperamentsByApi.push(element.temperament))
         const repeats = temperamentsByApi.map(element => element && element.split(",")).flat()
         const temps = [];
         const tempsArray = [...repeats].sort()
@@ -32,9 +32,9 @@ async function getTemperaments(req, res) {
                   }
                 )
             })
-           const TemperamentDb = await Temperament.findAll()
+           const temperaments = await Temperament.findAll()
            console.log("Temperamentos cargados")
-           return res.json(TemperamentDb)
+           return res.json(temperaments)
 
         } catch (error) {
         console.log(error);
