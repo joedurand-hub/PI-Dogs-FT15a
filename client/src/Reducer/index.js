@@ -37,7 +37,7 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_TEMPERAMENTS:
             const allDogs = state.allDogs
             const dogsFiltered = action.payload === 'All' ? allDogs 
-            : allDogs.filter(card => (card.temperament).includes(action.payload)) 
+            : allDogs.filter(obj => (obj.temperament).includes(action.payload)) 
             return { ...state, searchDog: dogsFiltered }
         
         case FILTER_BY_CREATED:
@@ -61,12 +61,14 @@ function rootReducer(state = initialState, action) {
       
         case ASC:
             const allDogs3 = state.allDogs
-            const orderASC = action.payload === 'All' ? state.searchDog : allDogs3.sort((a, b) =>  a.weight - b.weight);     
+            const orderASC = action.payload === 'All' ? state.searchDog 
+            : allDogs3.sort((a, b) =>  a.weight - b.weight);     
             return { ...state, searchDog: [...orderASC] };
         
         case ZA:
             const allDogs4 = state.allDogs
-            const orderZA = action.payload === 'All' ? state.searchDog : allDogs4.sort((a, b) => {
+            const orderZA = action.payload === 'All' ? state.searchDog 
+            : allDogs4.sort((a, b) => {
               const dog1 = a.name;
               const dog2 = b.name;
               if(dog1 > dog2) return -1
@@ -79,7 +81,8 @@ function rootReducer(state = initialState, action) {
         
         case DESC:
             const allDogs5 = state.allDogs
-            const orderDESC = action.payload === 'All' ? state.searchDog : allDogs5.sort((a, b) =>  b.weight - a.weight);     
+            const orderDESC = action.payload === 'All' ? state.searchDog 
+            : allDogs5.sort((a, b) =>  b.weight - a.weight);     
             return { ...state, searchDog: [...orderDESC] };
         
         case RESET:

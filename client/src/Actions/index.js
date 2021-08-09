@@ -51,8 +51,8 @@ export function postDog(dog) {
 export function getTemperaments() {
     return async function(dispatch) {
         try {
-            const response = await axios.get('http://localhost:3001/genres')
-            return dispatch({type: FILTER_BY_TEMPERAMENTS, payload: response.data}) 
+            const response = await axios.get('http://localhost:3001/temperament')
+            return dispatch({type: GET_TEMPERAMENTS, payload: response.data}) 
 
         } catch(error) {
             console.log(error)

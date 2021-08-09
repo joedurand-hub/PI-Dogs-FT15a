@@ -28,10 +28,7 @@ export function DogDetailById() {
                 <strong>Temperaments:</strong>
                 <div className="detailTemperaments">
                     <h4> { dog.temperament } </h4>
-                    { temperaments?.map((temperament, i) => (
-                            <h4 key={i}> {temperament.name} </h4>
-                     ))
-                    }
+
                 </div>
                 <div>
                     
