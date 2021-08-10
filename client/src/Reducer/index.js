@@ -20,6 +20,7 @@ const initialState = {
     getTemperaments: [], // Sin usar
 }
 
+
 function rootReducer(state = initialState, action) {
     switch(action.type) {
         case SEARCH_DOG:
@@ -37,7 +38,10 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_TEMPERAMENTS:
             const allDogs = state.allDogs
             const dogsFiltered = action.payload === 'All' ? allDogs 
-            : allDogs.filter(obj => (obj.temperament).includes(action.payload)) 
+            : allDogs.filter(obj => {
+                 console.log(obj.temperament)
+                 return obj.temperament.includes(action.payload)
+            }) 
             return { ...state, searchDog: dogsFiltered }
         
         case FILTER_BY_CREATED:
