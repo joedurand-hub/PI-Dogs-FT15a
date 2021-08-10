@@ -32,6 +32,7 @@ async function getDogs(req, res) {
                   }
                 },
               });
+              
               for (let data of allData) {
                 let arr = []
                 arr.push(data.temperament)
@@ -41,7 +42,7 @@ async function getDogs(req, res) {
                     id: data.id,
                     name: data.name,
                     image: data.image.url,
-                    temperament: arrTemp.map(temperament => temperament), 
+                    temperament: arrTemp.map(temperament => temperament.trim()), 
                     weight: data.weight.metric.split("-").map(string => string.trim()).toString()
                     
                 })
@@ -60,7 +61,7 @@ async function getDogs(req, res) {
         for (let data of allData) {
             let arr = []
             arr.push(data.temperament)
-            let arrTemp = arr.map(el => el && el.split(",")).flat()
+            let arrTemp = arr.map(temperaments => temperaments && temperaments.split(",").map(string => string.trim())).flat()
 
             dogsAllData.push({
                 id: data.id,
@@ -71,7 +72,6 @@ async function getDogs(req, res) {
                 
             })
         }
-        console.log("Consologueo un dog por las dudas y para ver rápido como es su data", dogsAllData[4])
         return res.json(dogsAllData)
 
        } catch(error) {
