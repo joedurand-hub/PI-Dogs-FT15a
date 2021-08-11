@@ -27,7 +27,7 @@ async function getDogsById(req, res) {
             const dogData = {
                 id: response.data.id,
                 name: response.data.name,
-                image: response.data.reference_image_id,
+                image: `https://cdn2.thedogapi.com/images/${response.data.reference_image_id}.jpg`,
                 weight: response.data.weight.metric,
                 height: response.data.weight.metric,
                 yearsLife: response.data.life_span,
