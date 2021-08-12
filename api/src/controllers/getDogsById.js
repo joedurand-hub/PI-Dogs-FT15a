@@ -29,7 +29,7 @@ async function getDogsById(req, res) {
                 name: response.data.name,
                 image: `https://cdn2.thedogapi.com/images/${response.data.reference_image_id}.jpg`,
                 weight: response.data.weight.metric,
-                height: response.data.weight.metric,
+                height: response.data.height.metric,
                 yearsLife: response.data.life_span,
                 temperament: response.data.temperament,
             }

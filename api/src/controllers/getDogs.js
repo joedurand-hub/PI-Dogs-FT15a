@@ -37,13 +37,12 @@ async function getDogs(req, res) {
                 let arr = []
                 arr.push(data.temperament)
                 let arrTemp = arr.map(temperaments => temperaments && temperaments.split(",").map(string => string.trim())).flat()
-    
                 dogsData.push({
                     id: data.id,
                     name: data.name,
                     image: `https://cdn2.thedogapi.com/images/${data.reference_image_id}.jpg`,
                     temperament: arrTemp,
-                    weight: data.weight.metric.split("-").map(string => string.trim()).toString()
+                    weight: data.weight.metric.split("-").map(string => string.trim())
                     
                 })
             }
@@ -68,7 +67,7 @@ async function getDogs(req, res) {
                 name: data.name,
                 image: data.image.url,
                 temperament: arrTemp, 
-                weight: data.weight.metric.split("-").map(string => string.trim()).toString()
+                weight: data.weight.metric.split("-").map(string => string.trim())
                 
             })
         }

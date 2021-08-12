@@ -16,6 +16,7 @@ async function getTemperaments(req, res) {
 
         const temperamentsByApi = [];
         allData.map(element => temperamentsByApi.push(element.temperament))
+        
         const repeats = temperamentsByApi.map(element => element && element.split(",")).flat()
         const temps = [];
         const tempsArray = [...repeats].sort()
@@ -24,6 +25,8 @@ async function getTemperaments(req, res) {
                 temps.push(tempsArray[i]);
             }
           }
+
+          
         const tempsTrim = temps.map(string => string.trim())
         const tempsInDb = tempsTrim.slice(0, 132)
         tempsInDb.forEach(element => {
@@ -34,6 +37,7 @@ async function getTemperaments(req, res) {
             })
            const temperaments = await Temperament.findAll()
            console.log("Temperamentos cargados")
+           console.log(temperaments)
            return res.json(temperaments)
 
         } catch (error) {
