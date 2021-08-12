@@ -7,61 +7,56 @@ import './Form.css'
 
 export function Form() {
   const dispatch = useDispatch();
-  const getGenresByState  = useSelector((state) => state.getGenres);
+  const getTemperamentsByState  = useSelector((state) => state.getTemperaments);
 
-  console.log("State de genre:", getGenresByState)
-  
-  const [game, setGame] = useState({
+  const [dog, setDog] = useState({
     name: '',
-    description: '',
-    img: '',
-    releaseDate: '',
-    rating: 0,
-    genres: [],
-    platforms: []
+    image: '',
+    height: [0, 0],
+    weight: [0, 0],
+    lifeYears: '',
+    temperaments: '',
+
   })
 
   useEffect(() => {
     dispatch(getTemperaments())
   }, [dispatch]);
 
-  const platformSelects = ["PlayStation", "PlayStation-2", "PlayStation-3", "PlayStation-4", "PlayStation-5", "PC", "iOS", "Android", "macOS", "Xbox", "Nintendo", "Atari", "Genesis"]
-  
-  const handleInputChange = function(e) { // Considero genres y platforms que son arrays
-    if (e.target.name === "genres" || e.target.name === "platforms") {
-      const arrayGenresOrPlatforms = game[e.target.name];
-      setGame({ ...game, [e.target.name]: arrayGenresOrPlatforms.concat(e.target.value) }); // Su nuevo State es el array con la info
+
+  const handleInputChange = function(e) { // Considero temperaments y platforms que son arrays
+    if (e.target.name === "height" || e.target.name === "weight") {
+      const arrayHeightAndWeight = dog[e.target.name];
+      console.log(e.target.value)
+      setDog({ ...dog, [e.target.name]: arrayHeightAndWeight.concat(e.target.value) }); // Su nuevo State es el array con la info
     } else {
-      setGame({ ...game, [e.target.name]: e.target.value }); // Sino setea lo que haya
+      setDog({ ...dog, [e.target.name]: e.target.value }); // Sino setea lo que haya
     }
   }
 
   const handleSubmit = function(e) { 
     e.preventDefault();
-
-      const videogameObject = {
-      name: game.name,
-      description: game.description,
-      img: game.img,
-      releaseDate: game.releaseDate,
-      rating: game.rating,
-      genres: game.genres,
-      platforms: game.platforms,
+      const breedObject = {
+      name: dog.name,
+      image: dog.image,
+      height : `${dog.height[0]} - ${dog.height[1]}`,
+      weight : `${dog.weight[0]} - ${dog.weight[1]}`,
+      lifeYears: dog.lifeYears,
+      temperaments: dog.temperaments,
       };
 
 
-      dispatch(postDog(videogameObject));
+      dispatch(postDog(breedObject));
       e.target.reset(); 
-      alert("Videogame created!");
+      alert("Breed created!");
       
-      setGame({
-        name: "",
-        description: "",
-        img: "",
-        releaseDate: "",
-        rating: 0,
-        genres: [],
-        platforms: [],
+      setDog({
+        name: '',
+        image: '',
+        height: [0, 0],
+        weight: [0, 0],
+        lifeYears: '',
+        temperaments: '',
       });
 
     };
@@ -76,17 +71,17 @@ export function Form() {
 
       <form className="form" onChange={(e) => handleInputChange(e)} onSubmit={(e) => handleSubmit(e)}  > 
         
-      <div className="genres">
-        <label htmlFor='genres'><strong> Genres </strong></label>
-                <div className="containerGenres">
-                    {getGenresByState.map((genre) => (
-                      <div className="inputGenre" key={genre.name}>
+      <div className="temperaments">
+        <label htmlFor='temperaments'><strong> Temperaments </strong></label>
+                <div className="containerTemperaments">
+                    {getTemperamentsByState.map((temperament) => (
+                      <div className="inputTemperament" key={temperament.name}>
                         <input className="inputCreate"
                           type="checkbox"
-                          name="genres"
-                          value={genre.id}
+                          name="temperaments"
+                          value={temperament.id}
                         ></input>
-                        <label name={genre}> {genre.name} </label>
+                        <label name={temperament}> {temperament.name} </label>
                       </div>
                     ))}
                 </div>
@@ -95,25 +90,25 @@ export function Form() {
         <div className="inputs">
           <strong> Form </strong>
           <label htmlFor='title'> Name </label>
-          <input className="inputCreate" type='text' name='name' value={game.name} />
-
-          <label htmlFor='description'> Description </label>
-          <textarea name='description' value={game.description} />
+          <input className="inputCreate" type='text' name='name' value={dog.name} />
 
           <label htmlFor='image'> Image </label>
-          <input className="inputCreate" type="text" name='img' value={game.img} />
+          <input className="inputCreate" type="text" name='image' value={dog.image} />
 
-          <label htmlFor='releaseDate'> Release Date </label>
-          <input className="inputCreate" type='date' name='releaseDate' value={game.releaseDate} />
+          <label htmlFor='height'> Height min and max </label>
+          <input className="inputCreate" type="text" name='height' value={dog.height} />
 
-          <label htmlFor='rating'> Rating </label>
-          <input className="inputCreate" type="number" name='rating' value={game.rating} />
+          <label htmlFor='weight'> Weight min and max </label>
+          <input className="inputCreate" type='text' name='weight' value={dog.weight} />
 
-          <button type='submit' name='submit' value='Submit'> Add videogame!</button>
+          <label htmlFor='lifeYears'> Years of life </label>
+          <input className="inputCreate" type='text' name='lifeYears' value={dog.lifeYears} />
+
+          <button type='submit' name='submit' value='Submit'> Add breed! </button>
         </div>
 
 
-    <div className="platforms">
+    {/* <div className="platforms">
                     
         <label htmlFor='platforms'> <strong> Platforms </strong> </label>
                 {platformSelects.map((platf) => (
@@ -126,7 +121,7 @@ export function Form() {
                       <label name={platf}> {platf} </label>
                     </div>
                 ))}
-                  </div>
+                  </div> */}
 
 
       </form>

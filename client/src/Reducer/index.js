@@ -13,11 +13,11 @@ import {
 } from '../Actions/index'
 
 const initialState = { 
-    searchDog: [],       // Sin usar
-    allDogs: [],         // Sin usar
-    detailDogById: [],   // Sin usar
-    newDog: null,        // Sin usar
-    getTemperaments: [], // Sin usar
+    searchDog: [],       
+    allDogs: [],         
+    detailDogById: [],   
+    newDog: null,        
+    getTemperaments: [], 
 }
 
 
@@ -66,7 +66,13 @@ function rootReducer(state = initialState, action) {
         case ASC:
             const allDogs3 = state.allDogs
             const orderASC = action.payload === 'All' ? state.searchDog 
-            : allDogs3.sort((a, b) =>  a.weight - b.weight);     
+            : allDogs3.sort(function (a, b) {
+                let weightA = Number.parseInt([a.weight][0])
+                let weightB = Number.parseInt([b.weight][0])
+                if (!weightA && weightA !== 0) weightA = 250
+                    if (!weightB && weightB !== 0) weightA = 250 
+                    return weightA - weightB;
+            })    
             return { ...state, searchDog: [...orderASC] };
         
         case ZA:
@@ -86,7 +92,13 @@ function rootReducer(state = initialState, action) {
         case DESC:
             const allDogs5 = state.allDogs
             const orderDESC = action.payload === 'All' ? state.searchDog 
-            : allDogs5.sort((a, b) =>  b.weight - a.weight);     
+            : allDogs5.sort(function (a, b) {
+                let weightA = Number.parseInt([a.weight][0])
+                let weightB = Number.parseInt([b.weight][0])
+                if (!weightA && weightA !== 0) weightA = 250
+                    if (!weightB && weightB !== 0) weightA = 250 
+                    return weightB- weightA;
+            })    
             return { ...state, searchDog: [...orderDESC] };
         
         case RESET:

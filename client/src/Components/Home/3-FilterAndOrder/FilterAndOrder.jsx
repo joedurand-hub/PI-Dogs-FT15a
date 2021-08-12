@@ -37,8 +37,8 @@ export default function Filter() {
             <select id="select" onChange={onOrderChange}>
                 <option value="All"> Order </option>
                 <option value="AZ"> Ascending (A - Z) </option>
-                <option value="ASC"> Weight + (menos - mas)</option>
                 <option value="ZA"> Descending (Z - A) </option>
+                <option value="ASC"> Weight + (menos - mas)</option>
                 <option value="DESC">Weight - (mas - menos)</option>
             </select>
 

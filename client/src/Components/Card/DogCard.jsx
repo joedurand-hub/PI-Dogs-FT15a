@@ -13,7 +13,7 @@ export function DogCard({dog}) {
                 <img src={dog.image} alt="Image not found" />
                
                 <p>Temperaments:</p>
-                <h4 className="temperaments"> {dog.temperament } </h4>
+                <h4 className="temperaments"> {dog.temperament.join(' ') } </h4>
                 {/* { dog.temperaments ? dog.temperaments.map((temperament, i) => (
                             <h4 key={i}> {temperament.name} </h4>
                      ))
