@@ -37,11 +37,6 @@ function rootReducer(state = initialState, action) {
             
         case FILTER_BY_TEMPERAMENTS:
             const allDogs = state.allDogs
-            // const dogsFiltered = action.payload === 'All' ? allDogs
-            // : allDogs.filter(obj => {
-            //      console.log(obj.temperament)
-            //      return obj.temperament.includes(action.payload)
-            // })
             const dogsFilter = action.payload === 'All' ? allDogs
             : allDogs.filter(obj => {
                 let tempsDb = obj.temperaments 
@@ -53,8 +48,6 @@ function rootReducer(state = initialState, action) {
                 }
                 return tempsApi.includes(action.payload)
             })
-
-
             return { ...state, searchDog: dogsFilter}
         
         case FILTER_BY_CREATED:
@@ -76,18 +69,6 @@ function rootReducer(state = initialState, action) {
             })      
             return { ...state, searchDog: action.payload === "All" ? allDogs2: [...orderAZ] };
       
-        case ASC:
-            const allDogs3 = state.allDogs
-            const orderASC = action.payload === 'All' ? state.searchDog 
-            : allDogs3.sort(function (a, b) {
-                let weightA = Number.parseInt([a.weight][0])
-                let weightB = Number.parseInt([b.weight][0])
-                if (!weightA && weightA !== 0) weightA = 250
-                    if (!weightB && weightB !== 0) weightA = 250 
-                    return weightA - weightB;
-            })    
-            return { ...state, searchDog: [...orderASC] };
-        
         case ZA:
             const allDogs4 = state.allDogs
             const orderZA = action.payload === 'All' ? state.searchDog 
@@ -102,6 +83,19 @@ function rootReducer(state = initialState, action) {
             })      
             return { ...state, searchDog: [...orderZA] };
         
+        case ASC:
+            const allDogs3 = state.allDogs
+            const orderASC = action.payload === 'All' ? state.searchDog 
+            : allDogs3.sort(function (a, b) {
+                let weightA = Number.parseInt([a.weight][0])
+                let weightB = Number.parseInt([b.weight][0])
+                if (!weightA && weightA !== 0) weightA = 250
+                    if (!weightB && weightB !== 0) weightA = 250 
+                    return weightA - weightB;
+                })    
+            return { ...state, searchDog: [...orderASC] };
+            
+            
         case DESC:
             const allDogs5 = state.allDogs
             const orderDESC = action.payload === 'All' ? state.searchDog 

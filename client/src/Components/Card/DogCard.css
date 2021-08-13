@@ -18,6 +18,17 @@
     height: 650px;
     box-shadow: 5px 4px 17px 3px rgba(0, 0, 0, 0.322);
 }
+
+.containerPagination .DogCard:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+}
+
+/* .containerPagination .DogCard {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+} */
+
 .DogCard img {
     width: 100%;
     height: 400px;

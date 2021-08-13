@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import { DogById } from '../../Actions/index';
 import {Link} from 'react-router-dom';
 import './DogCard.css'

@@ -5,9 +5,7 @@ import './DetailCard.css'
 
 export function DogDetailById() {
     const dog = useSelector((dataStore) => dataStore.detailDogById)
-    const temperaments = useSelector((dataStore) => dataStore.getTemperaments)
     console.log("dataDog:", dog)
-    console.log("temperamentos:", temperaments)
         return (
         <div>
             <Nav/>    
@@ -16,19 +14,21 @@ export function DogDetailById() {
 
                 <img src= {dog.image} alt="Image not found" />
             
-                <h3>Weight: {dog.weight} </h3>
-
-                <h3>Height: {dog.height} </h3>
-                
+                <h3>Weight min and max: </h3>
+                <h4>{dog.weight}</h4>
+                <h3>Height min and max: </h3>
+                <h4>{dog.height}</h4>
                 <strong>Years of life:</strong>
                 <div>
-                    <h4> {dog.yearsLife} </h4>
+                    <h4>Approximate {dog.yearsLife} years</h4>
                 </div>
                
                 <strong>Temperaments:</strong>
                 <div className="detailTemperaments">
-                    { dog.temperaments ?  dog.temperaments
-                    : <h4 className="temperament"> {dog.temperament}  </h4> } 
+                    { dog.temperaments ?  dog.temperaments.map((breed, index) => (
+                        <h4 key={index}> {breed.name} </h4>
+                    )) 
+                    : <h4 className="temperament"> {dog.temperament} </h4> } 
 
                 </div>
                 <div>
