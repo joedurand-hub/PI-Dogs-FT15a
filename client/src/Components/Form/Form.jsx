@@ -9,40 +9,79 @@ export function Form() {
   const dispatch = useDispatch();
   const getTemperamentsByState  = useSelector((state) => state.getTemperaments);
 
-  const [dog, setDog] = useState({
-    name: '',
-    image: '',
-    height: [0, 0],
-    weight: [0, 0],
-    lifeYears: '',
-    temperaments: '',
-
-  })
+  const [name, setName] = useState("");
+  const [weightMin, setWeightMin] = useState("");
+  const [weightMax, setWeightMax] = useState("");
+  const [heightMin, setHeightMin] = useState("");
+  const [heightMax, setHeightMax] = useState("");
+  const [image, setImage] = useState("");
+  const [yearsLife, setYearsLife] = useState("");
+  const [temperaments, setTemperaments] = useState([]);
 
   useEffect(() => {
     dispatch(getTemperaments())
   }, [dispatch]);
 
 
-  const handleInputChange = function(e) { // Considero temperaments y platforms que son arrays
-    if (e.target.name === "height" || e.target.name === "weight") {
-      const arrayHeightAndWeight = dog[e.target.name];
-      console.log(e.target.value)
-      setDog({ ...dog, [e.target.name]: arrayHeightAndWeight.concat(e.target.value) }); // Su nuevo State es el array con la info
-    } else {
-      setDog({ ...dog, [e.target.name]: e.target.value }); // Sino setea lo que haya
+
+  const handleInputChange = function(e) { 
+    e.preventDefault();
+    const eTargetName = e.target.name
+    switch (eTargetName) {
+      case 'name':
+        setName(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'weightMin':
+        setWeightMin(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'weightMax':
+        setWeightMax(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'heightMin':
+        setHeightMin(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'heightMax':
+        setHeightMax(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'image':
+        setImage(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'yearsLife':
+        setYearsLife(e.target.value) 
+         console.log(e.target.value)
+          break;
+
+      case 'temperaments':
+      setTemperaments([ ...temperaments, parseInt(e.target.value) ]); 
+         console.log(e.target.value)
+          break;
+
+      default:
+        break;
     }
   }
 
   const handleSubmit = function(e) { 
     e.preventDefault();
       const breedObject = {
-      name: dog.name,
-      image: dog.image,
-      height : `${dog.height[0]} - ${dog.height[1]}`,
-      weight : `${dog.weight[0]} - ${dog.weight[1]}`,
-      lifeYears: dog.lifeYears,
-      temperaments: dog.temperaments,
+      name: name,
+      image: image,
+      weight: `${weightMin} - ${weightMax}`,
+      height: `${heightMin} - ${heightMax}`,
+      yearsLife: yearsLife.toString(),
+      temperament: temperaments,
       };
 
 
@@ -50,16 +89,16 @@ export function Form() {
       e.target.reset(); 
       alert("Breed created!");
       
-      setDog({
-        name: '',
-        image: '',
-        height: [0, 0],
-        weight: [0, 0],
-        lifeYears: '',
-        temperaments: '',
-      });
+      setName('')
+      setImage('')
+      setWeightMin('')
+      setWeightMax('')
+      setHeightMin('')
+      setHeightMax('')
+      setYearsLife('')
+      setTemperaments([])
+  };
 
-    };
 
   return (
     <div className="formCreate">
@@ -70,59 +109,53 @@ export function Form() {
   
 
       <form className="form" onChange={(e) => handleInputChange(e)} onSubmit={(e) => handleSubmit(e)}  > 
-        
+
       <div className="temperaments">
         <label htmlFor='temperaments'><strong> Temperaments </strong></label>
                 <div className="containerTemperaments">
+
                     {getTemperamentsByState.map((temperament) => (
                       <div className="inputTemperament" key={temperament.name}>
+                        
                         <input className="inputCreate"
+                          id={temperament.id}
                           type="checkbox"
                           name="temperaments"
                           value={temperament.id}
                         ></input>
-                        <label name={temperament}> {temperament.name} </label>
+                        
+                        <label> {temperament.name} </label>
                       </div>
                     ))}
+                    
                 </div>
         </div>
 
         <div className="inputs">
           <strong> Form </strong>
           <label htmlFor='title'> Name </label>
-          <input className="inputCreate" type='text' name='name' value={dog.name} />
+          <input className="inputCreate" type='text' name='name' value={name} />
 
           <label htmlFor='image'> Image </label>
-          <input className="inputCreate" type="text" name='image' value={dog.image} />
+          <input className="inputCreate" type="text" name='image' value={image} />
 
-          <label htmlFor='height'> Height min and max </label>
-          <input className="inputCreate" type="text" name='height' value={dog.height} />
+          <label htmlFor='heightMin'> Height Min </label>
+          <input className="inputCreate" type="text" name='heightMin' value={heightMin} />
 
-          <label htmlFor='weight'> Weight min and max </label>
-          <input className="inputCreate" type='text' name='weight' value={dog.weight} />
+          <label htmlFor='heightMax'> Height Max </label>
+          <input className="inputCreate" type="text" name='heightMax' value={heightMax} />
 
-          <label htmlFor='lifeYears'> Years of life </label>
-          <input className="inputCreate" type='text' name='lifeYears' value={dog.lifeYears} />
+          <label htmlFor='weightMin'> Weight Min  </label>
+          <input className="inputCreate" type='text' name='weightMin' value={weightMin} />
+
+          <label htmlFor='weightMax'> Weight Max  </label>
+          <input className="inputCreate" type='text' name='weightMax' value={weightMax} />
+
+          <label htmlFor='yearsLife'> Years of life </label>
+          <input className="inputCreate" type='text' name='yearsLife' value={yearsLife} />
 
           <button type='submit' name='submit' value='Submit'> Add breed! </button>
         </div>
-
-
-    {/* <div className="platforms">
-                    
-        <label htmlFor='platforms'> <strong> Platforms </strong> </label>
-                {platformSelects.map((platf) => (
-                    <div className="containerPlatforms" key={platf}>
-                      <input className="inputCreate"
-                        type="checkbox"
-                        name="platforms"
-                        value={platf}
-                      ></input>
-                      <label name={platf}> {platf} </label>
-                    </div>
-                ))}
-                  </div> */}
-
 
       </form>
 

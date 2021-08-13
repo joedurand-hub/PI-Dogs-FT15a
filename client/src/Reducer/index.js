@@ -37,12 +37,25 @@ function rootReducer(state = initialState, action) {
             
         case FILTER_BY_TEMPERAMENTS:
             const allDogs = state.allDogs
-            const dogsFiltered = action.payload === 'All' ? allDogs 
+            // const dogsFiltered = action.payload === 'All' ? allDogs
+            // : allDogs.filter(obj => {
+            //      console.log(obj.temperament)
+            //      return obj.temperament.includes(action.payload)
+            // })
+            const dogsFilter = action.payload === 'All' ? allDogs
             : allDogs.filter(obj => {
-                 console.log(obj.temperament)
-                 return obj.temperament.includes(action.payload)
-            }) 
-            return { ...state, searchDog: dogsFiltered }
+                let tempsDb = obj.temperaments 
+                let tempsApi = obj.temperament
+                if(tempsDb) {
+                    for (let names of tempsDb) {
+                        return names.name === action.payload
+                    }
+                }
+                return tempsApi.includes(action.payload)
+            })
+
+
+            return { ...state, searchDog: dogsFilter}
         
         case FILTER_BY_CREATED:
             const createdFiltered = action.payload === 'DB' ? state.allDogs.filter(dog => dog.createdInDb)

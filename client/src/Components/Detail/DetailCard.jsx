@@ -27,7 +27,8 @@ export function DogDetailById() {
                
                 <strong>Temperaments:</strong>
                 <div className="detailTemperaments">
-                    <h4> { dog.temperament } </h4>
+                    { dog.temperaments ?  dog.temperaments
+                    : <h4 className="temperament"> {dog.temperament}  </h4> } 
 
                 </div>
                 <div>

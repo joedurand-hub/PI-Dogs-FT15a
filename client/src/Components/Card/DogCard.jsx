@@ -11,13 +11,13 @@ export function DogCard({dog}) {
             <div className="DogCard">
                 <h2> {dog.name} </h2> 
                 <img src={dog.image} alt="Image not found" />
-               
+                {console.log(dog.temperaments)}
                 <p>Temperaments:</p>
-                <h4 className="temperaments"> {dog.temperament.join(' ') } </h4>
-                {/* { dog.temperaments ? dog.temperaments.map((temperament, i) => (
+                { dog.temperaments ? dog.temperaments.map((temperament, i) => (
                             <h4 key={i}> {temperament.name} </h4>
-                     ))
-                 } */}
+                            
+                     )) : <h4 className="temperaments"> {dog.temperament.join(' ')}  </h4>
+                 }
     
                 <Link to={`/dog/`} key={dog.id}> 
                 <button onClick={() => dispatch(DogById(dog.id))}>Ver más</button>
