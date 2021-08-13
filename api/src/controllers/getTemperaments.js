@@ -37,7 +37,6 @@ async function getTemperaments(req, res) {
             })
            const temperaments = await Temperament.findAll()
            console.log("Temperamentos cargados")
-           console.log(temperaments)
            return res.json(temperaments)
 
         } catch (error) {
