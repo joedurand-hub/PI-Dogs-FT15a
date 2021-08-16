@@ -14,22 +14,39 @@
     overflow: hidden;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
     margin: 1%;
-    height: 700px;
+    height: 850px;
+}
+
+.formCreate .container  {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    margin: 15px;
+}
+
+
+.formCreate .container .title {
+    font-size: 28px;
+    width: 200px;
+    height: 35px;
 }
 
 
 /* INPUTS CSS */
+
 .formCreate .form .inputs {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items:initial;
-    width: 32%;
+    width: 42%;
+    padding: 4px;
+    border: 3px solid rgb(64, 62, 190);
+    border-radius: 15px;
+    height: 550px
 }
 
-.formCreate .form .inputs strong {
-    box-shadow: 0px 0px 20px 0px rgb(50, 196, 13);
-    font-size: 22px;
-}
 
 .formCreate .form .inputs .inputCreate {
     display: flex;
@@ -82,88 +99,28 @@
     font-weight: 600;
 }
 
-/* GENRES CSS */
+/* TEMPERAMENTS CSS */
 
-.formCreate .form .genres {
-    display: flex;
-    flex-direction: column;
-    width: 32%;
-
+.formCreate .form .temperaments {
+    margin-top: 20px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 170px);
 }
 
-.formCreate .form .genres strong {
-    box-shadow: 0px 0px 20px 0px rgb(159, 13, 196);
-    font-size: 22px;
-    width: 300px;
-    margin-left: 15px;
-}
 
-.formCreate .form .genres label {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    font-size: 22px;
-
-}
-
-.formCreate .form .genres .containerGenres {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-}
-
-.formCreate .form .genres .containerGenres .inputGenre {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+.formCreate .form .temperaments .inputTemperament {
+    display:flex;
+    align-content: flex-start;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
-.formCreate .form .genres .containerGenres label {
+.formCreate .form .temperaments label {
     font-size: 18px;
 }
 
-.formCreate .form .genres .containerGenres .inputCreate[type=checkbox] {
-   width: 15px;
-   height: 15px;
-   cursor: pointer;
-}
-
-/* PLATFORMS CSS */
-.formCreate .form .platforms {
-    display: flex;
-    flex-direction: column;
-    width: 32%;
-    margin-left: 50px;
-}
-
-.formCreate .form .platforms strong {
-    box-shadow: 0px 0px 20px 0px rgb(138, 13, 196);
-    font-size: 22px;
-    width: 320px;
-    margin-left: 80px;
-}
-
-.formCreate .form .platforms label {
-    display: flex;
-    flex-direction:column-reverse;
-    font-size: 22px;
-}
-
-.formCreate .form .platforms .containerPlatforms {
-    margin: 10px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.formCreate .form .platforms .containerPlatforms label {
-    font-size: 18px;
-}
-
-.formCreate .form .platforms .containerPlatforms .inputCreate[type=checkbox] {
+.formCreate .form .temperaments input[type=checkbox] {
    width: 15px;
    height: 15px;
    cursor: pointer;

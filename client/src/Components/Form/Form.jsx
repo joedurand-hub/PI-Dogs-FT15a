@@ -30,42 +30,34 @@ export function Form() {
     switch (eTargetName) {
       case 'name':
         setName(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'weightMin':
         setWeightMin(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'weightMax':
         setWeightMax(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'heightMin':
         setHeightMin(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'heightMax':
         setHeightMax(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'image':
         setImage(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'yearsLife':
         setYearsLife(e.target.value) 
-         console.log(e.target.value)
           break;
 
       case 'temperaments':
       setTemperaments([ ...temperaments, parseInt(e.target.value) ]); 
-         console.log(e.target.value)
           break;
 
       default:
@@ -102,17 +94,15 @@ export function Form() {
 
   return (
     <div className="formCreate">
-      <div>
         <Nav/>
-      </div>
-    <div>
   
+<div className="container">
+<strong className="title"> All your breed! </strong>
+</div>
 
       <form className="form" onChange={(e) => handleInputChange(e)} onSubmit={(e) => handleSubmit(e)}  > 
 
       <div className="temperaments">
-        <label htmlFor='temperaments'><strong> Temperaments </strong></label>
-                <div className="containerTemperaments">
 
                     {getTemperamentsByState.map((temperament) => (
                       <div className="inputTemperament" key={temperament.name}>
@@ -128,11 +118,9 @@ export function Form() {
                       </div>
                     ))}
                     
-                </div>
         </div>
 
         <div className="inputs">
-          <strong> Form </strong>
           <label htmlFor='title'> Name </label>
           <input className="inputCreate" type='text' name='name' value={name} />
 
@@ -159,7 +147,6 @@ export function Form() {
 
       </form>
 
-    </div>
     </div>
   )
 };

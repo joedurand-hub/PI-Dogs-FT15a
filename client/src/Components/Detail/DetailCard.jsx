@@ -6,6 +6,7 @@ import './DetailCard.css'
 export function DogDetailById() {
     const dog = useSelector((dataStore) => dataStore.detailDogById)
     console.log("dataDog:", dog)
+    
         return (
         <div>
             <Nav/>    
