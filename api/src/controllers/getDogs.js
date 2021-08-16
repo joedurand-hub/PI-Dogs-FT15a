@@ -29,8 +29,10 @@ async function getDogs(req, res) {
                 where: {
                   name: {
                     [Op.like]: `%${name}%`
-                  }
+                  },
+                  
                 },
+                include: Temperament
               });
               
               for (let data of dataAPI) {
@@ -46,6 +48,7 @@ async function getDogs(req, res) {
                     
                 })
             }
+            console.log(dogsData)
             return res.json(dogsData)
 
         } catch(error) {

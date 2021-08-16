@@ -5,7 +5,7 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const axios = require('axios').default;
-const { Dog } = require('../db');
+const { Dog, Temperament } = require('../db');
 const {API_KEY} = process.env;
 
 
@@ -17,7 +17,8 @@ async function getDogsById(req, res) {
             const dogId = await Dog.findOne({
                 where: {
                     id: id,
-                }
+                },
+                include: Temperament,
             });
             return res.json(dogId);
        
