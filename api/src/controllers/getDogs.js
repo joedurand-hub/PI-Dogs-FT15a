@@ -20,11 +20,6 @@ async function getDogs(req, res) {
 
     if(name) {
         try {
-            // const temperamentsByApi = [];
-            // allData.map(element => temperamentsByApi.push(element.temperament))
-            // const repeats = temperamentsByApi.map(element => element && element.split(",")).flat()
-            // const temps = [];
-
             let dogsData = await Dog.findAll({
                 where: {
                   name: {
