@@ -67,7 +67,7 @@ function rootReducer(state = initialState, action) {
                 return 0
               }
             })      
-            return { ...state, searchDog: action.payload === "All" ? allDogs2: [...orderAZ] };
+            return { ...state, searchDog: action.payload === "All" ? allDogs2 : [...orderAZ] };
       
         case ZA:
             const allDogs4 = state.allDogs
